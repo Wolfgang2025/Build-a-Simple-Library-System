@@ -1,0 +1,123 @@
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+        self.available = True  # Indicates if the book is available
+
+    def __str__(self):
+        return f"{self.title} by {self.author}"
+
+
+# Example usage
+if __name__ == "__main__":
+    # Create a new book instance
+    book1 = Book("1984", "George Orwell")
+
+    # Print the book details
+    print(book1)  # Output: 1984 by George Orwell
+
+    # Check availability
+    print(f"Is the book available? {'Yes' if book1.available else 'No'}")
+
+class Member:
+    # Class-level attribute for the bootcamp name
+    AI_Driven_Software_Engineering_Bootcamp = "AI Driven Software Engineering Bootcamp2"
+
+    def __init__(self, name, member_id):
+        # Instance attributes
+        self.name = name
+        self.member_id = member_id
+        self.borrowed_books = []
+
+    def __str__(self):
+        # String representation of the member
+        return f"Member: {self.name} (ID: {self.member_id})"
+
+# Example usage
+if __name__ == "__main__":
+    # Creating a Member instance
+    member1 = Member("Alice", 101)
+    
+    # Printing the member details
+    print(member1)  # Output: Member: Alice (ID: 101)
+    
+    # Accessing the class-level attribute
+    print(Member.AI_Driven_Software_Engineering_Bootcamp)
+
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+        self.available = True  # Indicates whether the book is available for lending
+
+    def __str__(self):
+        return f"{self.title} by {self.author}"
+
+
+class Member:
+    def __init__(self, name):
+        self.name = name
+        self.borrowed_books = []  # Keeps track of books borrowed by the member
+
+    def __str__(self):
+        return f"Member: {self.name}"
+
+
+class Library:
+    def __init__(self):
+        self.books = []  # A list of all books in the library
+        self.members = []  # A list of registered members
+
+    def add_book(self, book):
+        self.books.append(book)
+        print(f"Book added: {book}")
+
+    def register_member(self, member):
+        self.members.append(member)
+        print(f"Member registered: {member}")
+
+    def lend_book(self, book, member):
+        if book.available:
+            book.available = False
+            member.borrowed_books.append(book)
+            print(f"{book.title} has been lent to {member.name}")
+        else:
+            print(f"Sorry, {book.title} is not available for lending")
+
+    def return_book(self, book, member):
+        if book in member.borrowed_books:
+            book.available = True
+            member.borrowed_books.remove(book)
+            print(f"{book.title} has been returned by {member.name}")
+        else:
+            print(f"{member.name} did not borrow {book.title}")
+
+
+# Example Usage
+if __name__ == "__main__":
+    # Create a library
+    library = Library()
+
+    # Create some books
+    book1 = Book("1984", "George Orwell")
+    book2 = Book("To Kill a Mockingbird", "Harper Lee")
+
+    # Add books to the library
+    library.add_book(book1)
+    library.add_book(book2)
+
+    # Register a member
+    member1 = Member("Alice")
+    library.register_member(member1)
+
+    # Lend a book
+    library.lend_book(book1, member1)
+
+    # Attempt to lend the same book again
+    library.lend_book(book1, member1)
+
+    # Return the book
+    library.return_book(book1, member1)
+
+    # Attempt to return a book not borrowed by the member
+    library.return_book(book2, member1)
