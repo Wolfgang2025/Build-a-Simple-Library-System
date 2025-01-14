@@ -96,3 +96,29 @@ if __name__ == "__main__":
     library.lend_book(book5, member5)  # Lending book5 to member5
     library.return_book(book5, member5)  # Returning book5 by member5
     library.return_book(book5, member5)  # This should fail as book5 was not borrowed by member5
+
+VS Code Output:
+[Running] python -u "g:\My Drive\Software Engineering with AI\Build a Library System Exercise\Practice 3 Build a Library System"
+Book added: 'Dracula' by Bram Stoker
+Book added: 'The Antique Collector Guide' by London Publishing HOuse
+Book added: 'My Mary' by Dawn Beecroft Teetzel
+Book added: 'Have More Energy' by Peter Hollins
+Book added: 'Crushing' by TD Jakes
+Member registered: Member Hazel (ID: 101)
+Member registered: Member Brynn (ID: 102)
+Member registered: Member Siobhan (ID: 103)
+Member registered: Member Wekesa (ID: 104)
+Member registered: Member Donald (ID: 105)
+'Dracula' by Bram Stoker has been lent to Hazel
+'The Antique Collector Guide' by London Publishing HOuse has been lent to Brynn
+'Dracula' by Bram Stoker has been returned by Hazel
+Hazel did not borrow 'The Antique Collector Guide' by London Publishing HOuse
+'My Mary' by Dawn Beecroft Teetzel has been lent to Siobhan
+'Have More Energy' by Peter Hollins has been lent to Wekesa
+'My Mary' by Dawn Beecroft Teetzel has been returned by Siobhan
+Siobhan did not borrow 'Have More Energy' by Peter Hollins
+'Crushing' by TD Jakes has been lent to Donald
+'Crushing' by TD Jakes has been returned by Donald
+Donald did not borrow 'Crushing' by TD Jakes
+
+[Done] exited with code=0 in 0.19 seconds
